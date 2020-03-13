@@ -17,7 +17,7 @@ createdb $MY_APP_NAME-test
 
 Running `npm run start-dev` will make great things happen!
 
+in the browser type `localhost:8080` to open the app
+
 If you want to run the server and/or `webpack` separately, you can also
 `npm run start-server` and `npm run build-client`.
-
-From there, just follow your bliss.
