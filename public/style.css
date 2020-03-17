@@ -28,3 +28,6 @@ form div {
 .childgrid {
   align-self: center;
 }
+li {
+  padding: 10px;
+}

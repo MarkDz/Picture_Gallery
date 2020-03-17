@@ -29,13 +29,11 @@ fs.readFile(accessToPics, function read(err, data) {
   }
   let content = data.toString().split('\n')
   let picUrls = []
-  for (let i = 1; i < content.length; i++) {
-    // console.log(content[i])
+  for (let i = 1; i < content.length - 1; i++) {
     let picUrl = {}
     picUrl.URL = content[i]
     picUrls.push(picUrl)
   }
-  // console.log('piccsdscc', picUrls)
 
   Pictures.bulkCreate(picUrls, {validate: true})
     .then(() => {

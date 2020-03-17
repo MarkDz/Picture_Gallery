@@ -20,7 +20,7 @@ const Pic = styled.div`
     filter: grayscale(100%); /* FF 35+ */
   }
 `
-
+// This class component renders all the pictures available from database
 class AllPictures extends Component {
   componentDidMount() {
     this.props.getAllPictures()
@@ -45,6 +45,7 @@ class AllPictures extends Component {
   }
 }
 
+// Functions that connects this components with Redux
 const mapStateToProps = state => {
   return {
     pictures: state.pictures

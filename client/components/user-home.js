@@ -6,14 +6,13 @@ import {getAllPicturesThunk} from '../store/picture'
 /**
  * COMPONENT
  */
-
+// This component will be used in the next version
 export const UserHome = props => {
   const {email} = props
 
   return (
     <div>
       <h3>Welcome, {email}</h3>
-
       <div>pictures</div>
     </div>
   )

@@ -25,7 +25,7 @@ const PageNumbers = styled.ul`
   display: flex;
   flex: wrap;
   justify-content: center;
-  margin-top: 300px;
+  margin-top: 200px;
 `
 const Li = styled.div`
   margin-right: 0.3em;

@@ -9,10 +9,10 @@ import styled from 'styled-components'
 const Button = styled.div`
   background: 'white';
   font-size: 1em;
-  margin: 1em;
-  padding: 0.2em 0.5em;
-  border: 2px solid black;
-  border-radius: 7px;
+  margin: 0.5em;
+  margin-top: 30px;
+  padding: 0.5em 0.5em;
+  font-family: Consolas, monaco, monospace;
 `
 const LinkButtonsGroup = styled.div`
   display: flex;
@@ -24,7 +24,7 @@ const LinkButtonsGroup = styled.div`
 const Title = styled.div`
   color: rebeccapurple;
   margin: 10px;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: Consolas, monaco, monospace;
 `
 
 const Navbar = ({handleClick, isLoggedIn}) => {

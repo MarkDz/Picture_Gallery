@@ -3,10 +3,10 @@ import axios from 'axios'
 import styled from 'styled-components'
 
 const UploadComponent = styled.div`
-  border: 2px solid black;
-  border-radius: 7px;
   color: yellowgreen;
+  margin-top: 25px;
 `
+// Uploads csv file from disk and sends it to back end for parsing
 
 const FileUpload = () => {
   const [file, setFile] = useState('')
