@@ -5,7 +5,7 @@ module.exports = router
 
 router.get('/', async (req, res, next) => {
   try {
-    const pictures = await Pictures.findAll({attributes: ['id', 'url']})
+    const pictures = await Pictures.findAll({attributes: ['id', 'URL']})
     res.send(pictures)
   } catch (err) {
     next(err)
@@ -14,9 +14,10 @@ router.get('/', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   try {
-    const {url, name} = req.body
+    const {URL, name} = req.body
+
     const newPictures = await Pictures.create({
-      url,
+      URL,
       name
     })
     if (newPictures) res.send(newPictures)

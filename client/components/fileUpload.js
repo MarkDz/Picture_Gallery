@@ -2,28 +2,10 @@ import React, {Fragment, useState} from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
 
-const Button = styled.button`
-  background: white;
-  color: black;
-  font-size: 1em;
-  margin: 1em;
-  padding: 0.25em 1em;
-  border: 2px solid palevioletred;
-  border-radius: 7px;
-`
-
 const UploadComponent = styled.div`
-  border: 2px solid palevioletred;
+  border: 2px solid black;
   border-radius: 7px;
-`
-const FileNamePlaceholder = styled.div`
-  background: white;
-  color: black;
-  font-size: 1em;
-  margin: 1em;
-  padding: 0.25em 1em;
-  border: 2px solid palevioletred;
-  border-radius: 7px;
+  color: yellowgreen;
 `
 
 const FileUpload = () => {
@@ -38,7 +20,6 @@ const FileUpload = () => {
 
   const handleSubmit = async e => {
     e.preventDefault()
-    console.log('dfdfdfdfdfdfdfdfdfdfddf')
     const formData = new FormData()
     formData.append('file', file)
     try {

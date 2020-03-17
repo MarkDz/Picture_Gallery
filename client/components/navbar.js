@@ -11,10 +11,9 @@ const Button = styled.div`
   font-size: 1em;
   margin: 1em;
   padding: 0.2em 0.5em;
-  border: 2px solid palevioletred;
+  border: 2px solid black;
   border-radius: 7px;
 `
-
 const LinkButtonsGroup = styled.div`
   display: flex;
   flex: wrap;
@@ -22,10 +21,10 @@ const LinkButtonsGroup = styled.div`
   justify-content: left;
   background-color: white;
 `
-
 const Title = styled.div`
-  color: white;
+  color: rebeccapurple;
   margin: 10px;
+  font-family: 'Times New Roman', Times, serif;
 `
 
 const Navbar = ({handleClick, isLoggedIn}) => {

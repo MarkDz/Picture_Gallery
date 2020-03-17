@@ -18,7 +18,6 @@ export const UserHome = props => {
     </div>
   )
 }
-
 /**
  * CONTAINER
  */
@@ -27,7 +26,6 @@ const mapState = state => {
     email: state.user.email
   }
 }
-
 const mapDispatchToProps = dispatch => ({
   getAllPictures: () => dispatch(getAllPicturesThunk())
 })
