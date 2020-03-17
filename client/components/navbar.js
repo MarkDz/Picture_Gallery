@@ -3,34 +3,75 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
+import FileUpload from './fileUpload'
+import styled from 'styled-components'
 
+const Button = styled.div`
+  background: 'white';
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.2em 0.5em;
+  border: 2px solid palevioletred;
+  border-radius: 7px;
+`
 
-const Navbar = ({handleClick, isLoggedIn}) => (
-  <div>
-    <h1>Ultimate Picture Dashboard</h1>
+const LinkButtonsGroup = styled.div`
+  display: flex;
+  flex: wrap;
+  align-items: left;
+  justify-content: left;
+  background-color: white;
+`
 
-    <nav>
-      {isLoggedIn ? (
-        <div>
-        
-          {/* The navbar will show these links after you log in */}
-          <Link to="/home">Home</Link>
-          <a href="#" onClick={handleClick}>
-            Logout
-          </a>
-        </div>
-      ) : (
-        <div>
-          {/* The navbar will show these links before you log in */}
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Sign Up</Link>
-        </div>
-      )}
-    </nav>
+const Title = styled.div`
+  color: white;
+  margin: 10px;
+`
 
-    <hr />
-  </div>
-)
+const Navbar = ({handleClick, isLoggedIn}) => {
+  return (
+    <div>
+      <div>
+        {isLoggedIn ? (
+          <div>
+            {/* The navbar will show these links after you log in */}
+
+            <LinkButtonsGroup>
+              <Title>
+                <h1>My Dashboard</h1>
+              </Title>
+              <FileUpload />
+              <Button>
+                <Link to="/home">Home</Link>
+              </Button>
+              <Button>
+                <Link to="/paginated">My Pictures</Link>
+              </Button>
+              <Button>
+                <a href="#" onClick={handleClick}>
+                  Logout
+                </a>
+              </Button>
+            </LinkButtonsGroup>
+          </div>
+        ) : (
+          <div>
+            {/* The navbar will show these links before you log in */}
+            <LinkButtonsGroup>
+              <Button>
+                <Link to="/login">Login</Link>
+              </Button>
+              <Button>
+                <Link to="/signup">Sign Up</Link>
+              </Button>
+            </LinkButtonsGroup>
+          </div>
+        )}
+      </div>
+      <hr />
+    </div>
+  )
+}
 
 /**
  * CONTAINER
