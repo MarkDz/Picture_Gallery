@@ -11,7 +11,7 @@ const UploadComponent = styled.div`
 const FileUpload = () => {
   const [file, setFile] = useState('')
   const [filename, setFilename] = useState('File Name')
-  const [uploadedFile, setUploadedFile] = useState({})
+  const [setUploadedFile] = useState({})
 
   const handleChange = e => {
     setFile(e.target.files[0])
