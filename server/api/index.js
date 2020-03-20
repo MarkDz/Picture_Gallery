@@ -5,3 +5,4 @@ module.exports = router
 
 router.use('/pictures', require('./pictures'))
 router.use('/upload', require('./upload'))
+router.use('./users', require('./users'))

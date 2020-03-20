@@ -4,28 +4,28 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
 import FileUpload from './fileUpload'
-import styled from 'styled-components'
+//import styled from 'styled-components'
 
-const Button = styled.div`
-  background: 'white';
-  font-size: 1em;
-  margin: 0.5em;
-  margin-top: 30px;
-  padding: 0.5em 0.5em;
-  font-family: Consolas, monaco, monospace;
-`
-const LinkButtonsGroup = styled.div`
-  display: flex;
-  flex: wrap;
-  align-items: left;
-  justify-content: left;
-  background-color: white;
-`
-const Title = styled.div`
-  color: rebeccapurple;
-  margin: 10px;
-  font-family: Consolas, monaco, monospace;
-`
+// const Button = styled.div`
+//   background: 'white';
+//   font-size: 1em;
+//   margin: 0.5em;
+//   margin-top: 30px;
+//   padding: 0.5em 0.5em;
+//   font-family: Consolas, monaco, monospace;
+// `
+// const LinkButtonsGroup = styled.div`
+//   display: flex;
+//   flex: wrap;
+//   align-items: left;
+//   justify-content: left;
+//   background-color: white;
+// `
+// const Title = styled.div`
+//   color: rebeccapurple;
+//   margin: 10px;
+//   font-family: Consolas, monaco, monospace;
+// `
 
 const Navbar = ({handleClick, isLoggedIn}) => {
   return (
@@ -34,40 +34,23 @@ const Navbar = ({handleClick, isLoggedIn}) => {
         {isLoggedIn ? (
           <div>
             {/* The navbar will show these links after you log in */}
-
-            <LinkButtonsGroup>
-              <Title>
-                <h1>My Dashboard</h1>
-              </Title>
-              <FileUpload />
-              <Button>
-                <Link to="/home">Home</Link>
-              </Button>
-              <Button>
-                <Link to="/paginated">My Pictures</Link>
-              </Button>
-              <Button>
-                <a href="#" onClick={handleClick}>
-                  Logout
-                </a>
-              </Button>
-            </LinkButtonsGroup>
+            <h1>My Dashboard</h1>
+            <FileUpload />
+            <Link to="/home">Home</Link>
+            <Link to="/paginated">My Pictures</Link>
+            <a href="#" onClick={handleClick}>
+              Logout
+            </a>
           </div>
         ) : (
           <div>
             {/* The navbar will show these links before you log in */}
-            <LinkButtonsGroup>
-              <Button>
-                <Link to="/login">Login</Link>
-              </Button>
-              <Button>
-                <Link to="/signup">Sign Up</Link>
-              </Button>
-            </LinkButtonsGroup>
+            {/* <Link to="/login">Login</Link>
+            <br/>
+            <Link to="/signup">Sign Up</Link> */}
           </div>
         )}
       </div>
-      <hr />
     </div>
   )
 }
