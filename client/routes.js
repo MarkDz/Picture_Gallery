@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {withRouter, Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
-import {Login, Signup, Pagination} from './components'
+import {Login, Signup, Pagination, Header} from './components'
 import {me} from './store'
 import allPictures from './components/all-pictures'
 
@@ -18,7 +18,9 @@ class Routes extends Component {
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
+        {/* <Route path="/header" component={Header}/> */}
         <Route path="/login" component={Login} />
+        {/* <Route component={Header}/> */}
         <Route path="/signup" component={Signup} />
         {isLoggedIn && (
           <Switch>

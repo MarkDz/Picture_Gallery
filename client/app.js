@@ -1,15 +1,13 @@
 import React from 'react'
-
 import {Navbar} from './components'
 import Routes from './routes'
 
 const App = () => {
   return (
-    <div>
+    <React.Fragment>
       <Navbar />
       <Routes />
-    </div>
+    </React.Fragment>
   )
 }
-
 export default App
