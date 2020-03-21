@@ -23,24 +23,28 @@ fs.readdir(directory, (err, files) => {
 
 let accessToPics = './client/uploads/BmA8B0tY.csv'
 
-fs.readFile(accessToPics, function read(err, data) {
-  if (err) {
-    console.log(err)
-  }
-  let content = data.toString().split('\n')
-  let picUrls = []
-  for (let i = 1; i < content.length - 1; i++) {
-    let picUrl = {}
-    picUrl.URL = content[i]
-    picUrls.push(picUrl)
-  }
+const loadDb = props => {
+  fs.readFile(accessToPics, function read(err, data) {
+    if (err) {
+      console.log(err)
+    }
+    let content = data.toString().split('\n')
+    let picUrls = []
+    for (let i = 1; i < content.length - 1; i++) {
+      let picUrl = {}
+      picUrl.URL = content[i]
+      picUrls.push(picUrl)
+    }
 
-  Pictures.bulkCreate(picUrls, {validate: true})
-    .then(() => {
-      console.log('entries created')
-    })
-    .catch(error => {
-      console.log('failed to create entries')
-      console.log(error)
-    })
-})
+    Pictures.bulkCreate(picUrls, {validate: true})
+      .then(() => {
+        console.log('entries created')
+      })
+      .catch(error => {
+        console.log('failed to create entries')
+        console.log(error)
+      })
+  })
+}
+
+//load_db()
