@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
@@ -41,19 +41,29 @@ const NavItem = styled(Link)`
     z-index: 6;
   }
 `
+const Title = styled.div`
+  text-decoration: none;
+  color: goldenrod;
+  margin-top: 28px;
+  padding: 10px;
+  margin: 10 3vw;
 
+  @media (max-width: 768px) {
+    padding: 20px 0;
+    font-size: 1.5rem;
+    z-index: 6;
+  }
+`
 const Navigation = styled.nav`
   height: 10vh;
   display: flex;
   background-color: #fff;
-  position: relative;
-  justify-content: space-between;
+  justify-content: center;
   text-transform: uppercase;
   border-bottom: 2px solid #33333320;
-  margin: 0 auto;
-  padding: 0 5vw;
-  z-index: 2;
-  align-self: center;
+  margin: 0 1vh;
+
+  padding: 0 2vw;
 
   @media (max-width: 768px) {
     position: sticky;
@@ -64,7 +74,6 @@ const Navigation = styled.nav`
     left: 0;
   }
 `
-
 const Toggle = styled.div`
   display: none;
   height: 100%;
@@ -75,7 +84,6 @@ const Toggle = styled.div`
     display: flex;
   }
 `
-
 const Navbox = styled.div`
   display: flex;
   height: 100%;
@@ -94,7 +102,6 @@ const Navbox = styled.div`
     left: ${props => (props.open ? '-100%' : '0')};
   }
 `
-
 const Hamburger = styled.div`
   background-color: #111;
   width: 30px;
@@ -126,38 +133,49 @@ const Hamburger = styled.div`
     top: 10px;
   }
 `
-
 const Navbar = ({handleClick, isLoggedIn}) => {
+  const [navbarOpen, setNavbarOpen] = useState(false)
   return (
     <div>
-      <Navigation>
-        <FileUpload />
-        {isLoggedIn ? (
-          <div>
-            {/* The navbar will show these links after you log in */}
-            {/* <h1>My Dashboard</h1> */}
-
-            <NavItem to="/home">Home</NavItem>
-            <NavItem to="/paginated">My Pictures</NavItem>
-            <NavItem>
+      {isLoggedIn ? (
+        <Navigation>
+          <FileUpload />
+          {/* <Title>My Dash</Title> */}
+          <Toggle
+            navbarOpen={navbarOpen}
+            onClick={() => setNavbarOpen(!navbarOpen)}
+          >
+            {navbarOpen ? <Hamburger open /> : <Hamburger />}
+          </Toggle>
+          {navbarOpen ? (
+            <Navbox>
+              <NavItem to="/home">Home</NavItem>
+              <NavItem to="/paginated">My Pictures</NavItem>
               <a href="#" onClick={handleClick}>
                 Logout
               </a>
-            </NavItem>
-          </div>
-        ) : (
-          <div>
-            {/* The navbar will show these links before you log in */}
-            {/* <Link to="/login">Login</Link>
+            </Navbox>
+          ) : (
+            <Navbox open>
+              <NavItem to="/home">Home</NavItem>
+              <NavItem to="/paginated">My Pictures</NavItem>
+              <a href="#" onClick={handleClick}>
+                Logout
+              </a>
+            </Navbox>
+          )}
+        </Navigation>
+      ) : (
+        <div>
+          {/* The navbar will show these links before you log in */}
+          {/* <Link to="/login">Login</Link>
             <br/>
             <Link to="/signup">Sign Up</Link> */}
-          </div>
-        )}
-      </Navigation>
+        </div>
+      )}
     </div>
   )
 }
-
 /**
  * CONTAINER
  */
