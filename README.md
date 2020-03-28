@@ -1,7 +1,7 @@
 ## Customize
 
 * `npm install`
-* Create two postgres databases (`MY_APP_NAME` should match the `name`
+* Create two postgres databases (`picture-viewer` should match the `name`
   parameter in `package.json`):
 
 ```
