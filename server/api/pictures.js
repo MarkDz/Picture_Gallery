@@ -12,6 +12,16 @@ router.get('/', async (req, res, next) => {
   }
 })
 
+router.get('/', async (req, res, next) => {
+  try {
+    const singlePicture = await Pictures.findById(req.params.id)
+    if (singlePicture) res.send(singlePicture)
+    else res.status(404).send('404 - This picture does not exist')
+  } catch (err) {
+    next(err)
+  }
+})
+
 router.post('/', async (req, res, next) => {
   try {
     const {URL, name} = req.body
